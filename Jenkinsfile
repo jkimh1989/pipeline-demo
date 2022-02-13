@@ -8,5 +8,13 @@ pipeline {
       }
     }
 
+    stage('Bees Bees Bees') {
+      agent any
+      steps {
+        echo 'Buuz Bees Buzz!'
+        echo 'Bees Buzzing!'
+      }
+    }
+
   }
 }
