@@ -13,6 +13,7 @@ pipeline {
       agent any
       steps {
         sh './jenkins/test-all.sh'
+        junit '**/surefire-reports/**/*.xml'
       }
     }
 
