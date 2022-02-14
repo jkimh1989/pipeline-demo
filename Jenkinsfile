@@ -11,10 +11,22 @@ pipeline {
     }
 
     stage('Buzz Test') {
-      agent any
-      steps {
-        sh './jenkins/test-all.sh'
-        junit 'target/**/TEST*.xml'
+      parallel {
+        stage('Testing A') {
+          agent any
+          steps {
+            sh './jenkins/test-all.sh'
+            junit 'target/**/TEST*.xml'
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            sh '''sleep 10
+echo done'''
+          }
+        }
+
       }
     }
 
